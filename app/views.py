@@ -1,6 +1,5 @@
-from django.shortcuts import render
 from rest_framework import viewsets
-from app.models import Cashback, Customer, Product
+from app.models import Cashback
 from app.serializer import CashbackSerializer
 
 
