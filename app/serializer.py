@@ -44,3 +44,17 @@ class CashbackSerializer(serializers.ModelSerializer):
             )
 
         return cashback
+
+    def validate(self, attrs):
+        attrs = super(CashbackSerializer, self).validate(attrs)  # calling default validation
+
+        total_products = 0
+        products = attrs['products']
+        for product in products:
+            value_data = product['value']
+            qty_data = product['qty']
+            total_products += value_data * qty_data
+
+        if total_products != attrs['total']:
+            raise serializers.ValidationError("The price sum isn't right, check it.")
+        return attrs

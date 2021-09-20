@@ -17,10 +17,8 @@ class CashbackViewSet(viewsets.ModelViewSet):
 
         data = serializer.validated_data
         total_data = data['total']
-        print(total_data)
 
         cashback_calculation = total_data * Decimal('0.10')
-        print(cashback_calculation)
 
         serializer.create(data)
 
