@@ -1,9 +1,10 @@
 from decimal import Decimal
 
-from rest_framework import viewsets, views
+from rest_framework import viewsets
 from rest_framework.response import Response
 
 from app.models import Cashback
+from app.send_cashback import customer_cashback
 from app.serializer import CashbackSerializer
 
 
@@ -19,6 +20,10 @@ class CashbackViewSet(viewsets.ModelViewSet):
         total_data = data['total']
 
         cashback_calculation = total_data * Decimal('0.10')
+
+        document = data['customer']['document']
+
+        customer_cashback(document, cashback_calculation)
 
         serializer.create(data)
 
