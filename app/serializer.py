@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from app.models import Cashback, Product, Customer
+from validate_docbr import CPF
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -13,6 +14,12 @@ class CustomerSerializer(serializers.ModelSerializer):
         model = Customer
         fields = ['document', 'name']
 
+    def validate_document(self, document):
+        cpf = CPF()
+        if not cpf.validate(document):
+            raise serializers.ValidationError('Invalid Document')
+
+        return document
 
 class CashbackSerializer(serializers.ModelSerializer):
     products = ProductSerializer(many=True)
@@ -47,7 +54,6 @@ class CashbackSerializer(serializers.ModelSerializer):
 
     def validate(self, attrs):
         attrs = super(CashbackSerializer, self).validate(attrs)  # calling default validation
-
         total_products = 0
         products = attrs['products']
         for product in products:
