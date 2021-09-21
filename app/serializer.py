@@ -8,6 +8,13 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = ['type', 'value', 'qty']
 
+    def validate_type(self, type):
+        valid_types = ["hortifruti", "frios", "industrializados"]
+        if type not in valid_types:
+            raise serializers.ValidationError('Invalid Product Type. Valid types are: "hortifruti", "frios" or '
+                                              '"industrializados"')
+        return type
+
 
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
@@ -20,6 +27,7 @@ class CustomerSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError('Invalid Document')
 
         return document
+
 
 class CashbackSerializer(serializers.ModelSerializer):
     products = ProductSerializer(many=True)
