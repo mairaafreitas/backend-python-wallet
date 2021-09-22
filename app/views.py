@@ -2,6 +2,9 @@ from decimal import Decimal
 
 from rest_framework import viewsets
 from rest_framework.response import Response
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.settings import api_settings
+
 
 from app.models import Cashback
 from app.send_cashback import customer_cashback
@@ -29,4 +32,8 @@ class CashbackViewSet(viewsets.ModelViewSet):
 
         return Response({f"cashback_calculation: {cashback_calculation}"})
 
+
+class UserLoginApiView(ObtainAuthToken):
+    """Handle creating user authentication tokens"""
+    renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
 
