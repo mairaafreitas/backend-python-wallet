@@ -16,7 +16,7 @@ o valor do cashback, que retornará o benefício do cashback para o cliente.
 ## Configurar a aplicação para rodar localmente:
 Clone o repositório para criar uma cópia local no seu computador 
 
-	``git clone https://github.com/mairaafreitas/backend-python-wallet.git``
+	git clone https://github.com/mairaafreitas/backend-python-wallet.git
 
 ## Inicialização
 1. Abra o diretório clonado no terminal
