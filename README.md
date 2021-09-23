@@ -15,6 +15,7 @@ o valor do cashback, que retornará o benefício do cashback para o cliente.
 
 ## Configurar a aplicação para rodar localmente:
 Clone o repositório para criar uma cópia local no seu computador 
+
 	``git clone https://github.com/mairaafreitas/backend-python-wallet.git``
 
 ## Inicialização
@@ -63,7 +64,7 @@ Para os demais acessos, a chave retornada acima deve ser inserida no header Auth
 
 A api recebe as informações enviadas pelo varejista:
 
-``POST /api/cashback``
+``POST /cashback``
 
 
 ``
@@ -92,3 +93,8 @@ Authorization: Token 4hfddaf1832aea98huy74f77d771028c0b3d4397be2
     ],
 }
 ```
+
+Para verificar e testar os recursos que da API, pode-se utilizar uma ferramenta como o [Postman](https://www.postman.com/).
+
+## Autor
+* **Maíra Freitas** - [*Backend Developer Junior*](https://github.com/mairaafreitas)
