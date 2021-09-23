@@ -9,10 +9,10 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = ['type', 'value', 'qty']
 
     def validate_type(self, type):
-        valid_types = ["hortifruti", "frios", "industrializados"]
+        valid_types = ["A", "B", "C"]
         if type not in valid_types:
-            raise serializers.ValidationError('Invalid Product Type. Valid types are: "hortifruti", "frios" or '
-                                              '"industrializados"')
+            raise serializers.ValidationError('Invalid Product Type. Valid types are: "A", "B" or '
+                                              '"C"')
         return type
 
 
