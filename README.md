@@ -93,8 +93,14 @@ Authorization: Token 4hfddaf1832aea98huy74f77d771028c0b3d4397be2
     ],
 }
 ```
-
 Para verificar e testar os recursos que da API, pode-se utilizar uma ferramenta como o [Postman](https://www.postman.com/).
 
+
+Para rodar os testes, execute o comando:
+
+``docker-compose run web python -m unittest discover -s app/tests``
+
+
+
 ## Autor
-* **Maíra Freitas** - [*Backend Developer Junior*](https://github.com/mairaafreitas)
+* **Maíra Freitas** - [*Junior Backend Developer*](https://github.com/mairaafreitas)
