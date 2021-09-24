@@ -2,6 +2,8 @@ from rest_framework import serializers
 from app.models import Cashback, Product, Customer
 from validate_docbr import CPF
 
+from app.services.calculate_total import calculate_total
+
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
@@ -62,12 +64,8 @@ class CashbackSerializer(serializers.ModelSerializer):
 
     def validate(self, attrs):
         attrs = super(CashbackSerializer, self).validate(attrs)  # calling default validation
-        total_products = 0
         products = attrs['products']
-        for product in products:
-            value_data = product['value']
-            qty_data = product['qty']
-            total_products += value_data * qty_data
+        total_products = calculate_total(products)
 
         if total_products != attrs['total']:
             raise serializers.ValidationError("The price sum isn't right, check it.")

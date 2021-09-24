@@ -49,6 +49,7 @@ https://pypi.org/project/validate-docbr/
 ### Criar autenticação
 https://www.django-rest-framework.org/api-guide/authentication/#tokenauthentication
 https://simpleisbetterthancomplex.com/tutorial/2018/11/22/how-to-implement-token-authentication-using-django-rest-framework.html
+
 Build a Backend REST API with Python & Django - Beginner - Udemy (https://udemy.com/course/django-python)
 
 
