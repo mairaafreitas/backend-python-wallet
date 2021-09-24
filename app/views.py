@@ -7,7 +7,7 @@ from rest_framework.settings import api_settings
 
 
 from app.models import Cashback
-from app.send_cashback import customer_cashback
+from app.services.send_cashback import customer_cashback
 from app.serializer import CashbackSerializer
 
 
